@@ -8,7 +8,6 @@ from .tiny_pointer import TinyPointer
 
 
 def _bucket_size_primary(delta: float) -> int:
-    """b = max(2, ceil(δ⁻² · log₂(δ⁻¹)))  — Section 3."""
     inv_delta = 1.0 / delta
     b = max(2, math.ceil(inv_delta ** 2 * math.log2(inv_delta)))
     return b
@@ -23,9 +22,6 @@ def _bucket_size_secondary(n_secondary: int) -> int:
 
 def _round_up(n: int, divisor: int) -> int:
     return ((n + divisor - 1) // divisor) * divisor
-
-
-
 
 class DereferenceTable:
     def __init__(self, n: int, delta: float = 0.1, seed: int | None = None) -> None:
