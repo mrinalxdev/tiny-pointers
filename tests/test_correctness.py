@@ -34,10 +34,6 @@ def test_dereference_uniqueness_large() -> None:
     )
 
 def test_dereference_is_stable() -> None:
-    """
-    The slot returned by Dereference must not change as other keys are
-    inserted and removed — it depends only on k, p, and fixed random bits.
-    """
     dt = DereferenceTable(n=128, delta=0.25, seed=99)
 
     p_target = dt.allocate(999)
