@@ -128,10 +128,10 @@ if __name__ == "__main__":
     for t in tests:
         try:
             t()
-            print(f"  ✓  {t.__name__}")
+            print(f"  [PASSED]  {t.__name__}")
             passed += 1
         except Exception as e:
             import traceback
-            print(f"  ✗  {t.__name__}: {e}")
+            print(f"  [FAILED]  {t.__name__}: {e}")
             traceback.print_exc()
     print(f"\n{passed}/{len(tests)} tests passed")
